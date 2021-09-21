@@ -1,0 +1,53 @@
+---
+title: "Simple document"
+author: "Anyu Zhu"
+date: 2021-09-16
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+I'm an R Markdown document! 
+
+# Section 1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+# Section 3
+
+new code chunk: option + command + i
+```{r, collapse=TRUE}
+library(tidyverse)
+set.seed(1)
+plot_df = tibble(
+  x = rnorm(1000, sd = 0.5),
+  y = 1 + 2 * x + rnorm(1000),
+  y_quad = 1 + 2 * x^2 + rnorm(1000)
+)
+ggplot(plot_df, aes(x = x)) + geom_histogram(col = 'red')
+```
+
+```{r assessment 1}
+df = tibble(
+  sample_1 = rnorm(500, mean = 1),
+  filter_1 = sample_1 > 0,
+  filter_2 = abs(sample_1)
+)
+ggplot(df, aes(x = filter_2)) + geom_histogram(col = 'red')
+median_sample_1 = median(pull(df,sample_1)) # pull(data frame, column)
+```
+The median is `r median(median_sample_1)`
+
