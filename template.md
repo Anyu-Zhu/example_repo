@@ -18,7 +18,7 @@ length(samp)
 
 # Section 2
 
-I can take the mean of the sample, too\! The mean is -0.0405269.
+I can take the mean of the sample, too\! The mean is -0.0846747.
 
 # Section 3
 
@@ -34,6 +34,7 @@ library(tidyverse)
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
+library(ggplot2)
 set.seed(1)
 plot_df = tibble(
   x = rnorm(1000, sd = 0.5),
